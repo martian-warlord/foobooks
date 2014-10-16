@@ -88,3 +88,37 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| codebright excersize Filter
+|--------------------------------------------------------------------------
+|
+*/
+
+
+// Route::filter('birthday', function()
+// {
+//     if (date('d/m/y') == '12/12/84') {
+//         return View::make('birthday');
+//     }
+// });
+
+Route::filter('birthday', function($route, $request, $date)
+{
+    if (date('d/m') == $date) {
+        return View::make('birthday');
+    }
+});
+
+
+// Route::filter('birthday', function($route, $request, $first, $second, $third)
+// {
+//     return "{$first} - {$second} - {$third}";
+// });
+
+// Route::filter('example', function($route, $request, $optional = 'Yep!')
+// {
+//     return $optional;
+// });
